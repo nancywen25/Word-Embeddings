@@ -43,15 +43,20 @@ def get_fourth_word(A, B, C, nlp):
     words, scores = get_word(we_D, nlp)
     return words[0] # return the top word
 
+def print_analogy(A, B, C, nlp):
+    D = get_fourth_word(A, B, C, nlp)
+    return "{}:{}::{}:{}".format(A, B, C, D)
+
 
 def main():
     # load the GloVe model with 300 dimensions
     nlp = en_core_web_lg.load()
-    print(get_fourth_word("king", "man", "queen", nlp))
-    print(get_fourth_word("London", "England", "Paris", nlp))
-    print(get_fourth_word("Dog", "Puppy", "Cat", nlp))
-    print(get_fourth_word("Sister", "Brother", "Aunt", nlp))
-    print(get_fourth_word("Slow", "Slower", "Fast", nlp))
+    with open("output/analogy.txt", 'w') as f:
+        f.write(print_analogy("king", "man", "queen", nlp) + '\n')
+        f.write(print_analogy("London", "England", "Paris", nlp) + '\n')
+        f.write(print_analogy("Dog", "Puppy", "Cat", nlp) + '\n')
+        f.write(print_analogy("Sister", "Brother", "Aunt", nlp) + '\n')
+        f.write(print_analogy("Slow", "Slower", "Fast", nlp) + '\n')
 
 if __name__ == "__main__":
     main()

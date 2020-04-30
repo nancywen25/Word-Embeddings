@@ -1,0 +1,5 @@
+king:man::queen:WOman
+London:England::Paris:FRANCE
+Dog:Puppy::Cat:kitten
+Sister:Brother::Aunt:UNCLE
+Slow:Slower::Fast:faster
